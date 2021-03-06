@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { PrivateRoute } from "./utils/authentification";
+
+import { PrivateRoute } from "./helpers/privateRoute";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { auth } from "./services/firebase";
+import styles from "./app.css"
 
-function App() {
+export const App = () => {
   const [hasToken, setHasToken] = useState(false);
   const [isAuthentificated, setIsAuthentificated] = useState(false);
 
@@ -22,6 +24,7 @@ function App() {
 
   return (
     <>
+      <h2 className={styles.appTitle}>Chat App</h2>
       <Switch>
         <Route exact path="/">
           <Redirect to="/home" />
@@ -36,8 +39,9 @@ function App() {
           <Home />
         </PrivateRoute>
       </Switch>
+
     </>
   );
 }
 
-export default App;
+

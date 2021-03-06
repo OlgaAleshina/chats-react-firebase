@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { App } from './app';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
+import 'antd/dist/antd.css';
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div> my app</div>
-  </React.StrictMode>,
+
+
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+
+  ,
   document.getElementById('root')
 );
 
